@@ -324,8 +324,9 @@
       content: attr(data-tip);
       position: absolute;
       bottom: calc(100% + 8px);
-      right: 50%;
-      transform: translateX(50%);
+      right: 0;
+      left: auto;
+      transform: none;
       background: #1e1e1e;
       border: 1px solid rgba(255,214,0,0.3);
       color: #e8e8e8;
@@ -335,14 +336,15 @@
       padding: 10px 14px;
       border-radius: 6px;
       white-space: normal;
-      width: 220px;
+      width: 240px;
+      max-width: calc(100vw - 32px);
       text-align: right;
       direction: rtl;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.15s;
-      z-index: 100;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      z-index: 9999;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.6);
     }
     .question-mark:hover::after { opacity: 1; }
     .total-row td {
