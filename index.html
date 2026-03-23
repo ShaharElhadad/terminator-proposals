@@ -301,6 +301,46 @@
     }
     .costs-table tr:last-child td { border-bottom: none; }
     .costs-table tr:hover td { background: var(--bg-light); }
+    @media (max-width: 640px) {
+      .costs-table thead { display: none; }
+      .costs-table tr {
+        display: block;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        margin-bottom: 10px;
+        padding: 14px 16px;
+      }
+      .costs-table tr:hover td { background: transparent; }
+      .costs-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        border-bottom: 1px solid var(--border);
+        padding: 10px 0;
+        gap: 12px;
+      }
+      .costs-table td:last-child { border-bottom: none; padding-bottom: 0; }
+      .costs-table td:first-child { padding-top: 0; }
+      .costs-table td::before {
+        content: attr(data-label);
+        font-size: 10px;
+        color: var(--text-muted);
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        white-space: nowrap;
+        padding-top: 2px;
+      }
+      .costs-table td[data-label=''] { display: none; }
+      .costs-table tr.total-row td {
+        display: flex;
+        background: rgba(230,62,27,0.06);
+      }
+      .costs-table tr.total-row td[colspan] {
+        border-bottom: 1px solid var(--border);
+      }
+    }
     .cost-name { color: #fff; font-weight: 600; font-size: 14px; }
     .cost-note { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
     .cost-amount { color: var(--text); font-weight: 700; white-space: nowrap; }
@@ -768,42 +808,42 @@
         </thead>
         <tbody>
           <tr>
-            <td>
+            <td data-label="שירות">
               <div class="cost-name"><i class="fa-solid fa-server"></i> שרת VPS</div>
               <div class="cost-note">DigitalOcean / Hetzner</div>
             </td>
-            <td style="font-size:13px;color:var(--text-muted)">מחשב ענן שמריץ את הבוט 24 שעות ביממה, 7 ימים בשבוע</td>
-            <td><span class="cost-amount">50 עד 80 ₪</span></td>
-            <td><span class="tag tag-green">קבוע</span></td>
+            <td data-label="תיאור" style="font-size:13px;color:var(--text-muted)">מחשב ענן שמריץ את הבוט 24 שעות ביממה, 7 ימים בשבוע</td>
+            <td data-label="עלות חודשית"><span class="cost-amount">50 עד 80 ₪</span></td>
+            <td data-label="הערה"><span class="tag tag-green">קבוע</span></td>
           </tr>
           <tr>
-            <td>
+            <td data-label="שירות">
               <div class="cost-name"><i class="fa-solid fa-microchip"></i> Gemini AI</div>
               <div class="cost-note">Google Gemini API</div>
             </td>
-            <td style="font-size:13px;color:var(--text-muted)">המוח של הבוט, ה-AI שמנהל את השיחות, ממליץ ועושה upsell</td>
-            <td><span class="cost-amount">30 עד 100 ₪</span></td>
-            <td><span class="tag tag-yellow">תלוי בנפח <span class="question-mark" data-tip="תלוי בכמה שיחות יהיו בחודש">?</span></span></td>
+            <td data-label="תיאור" style="font-size:13px;color:var(--text-muted)">המוח של הבוט, ה-AI שמנהל את השיחות, ממליץ ועושה upsell</td>
+            <td data-label="עלות חודשית"><span class="cost-amount">30 עד 100 ₪</span></td>
+            <td data-label="הערה"><span class="tag tag-yellow">תלוי בנפח <span class="question-mark" data-tip="תלוי בכמה שיחות יהיו בחודש">?</span></span></td>
           </tr>
           <tr>
-            <td>
+            <td data-label="שירות">
               <div class="cost-name"><i class="fa-brands fa-whatsapp"></i> WhatsApp API</div>
               <div class="cost-note">Meta Cloud API הרשמי</div>
             </td>
-            <td style="font-size:13px;color:var(--text-muted)">הגישה הרשמית של Meta לשליחת וקבלת הודעות בוואטסאפ עסקי</td>
+            <td data-label="תיאור" style="font-size:13px;color:var(--text-muted)">הגישה הרשמית של Meta לשליחת וקבלת הודעות בוואטסאפ עסקי</td>
             <td>
               <span class="cost-amount free">חינם</span>
               <div class="cost-note">עד 1,000 שיחות/חודש</div>
               <div class="cost-note" style="margin-top:4px">מעבר לכך: ~0.20 ₪/שיחה</div>
             </td>
-            <td><span class="tag tag-yellow">תלוי בנפח <span class="question-mark" data-tip="1,000 שיחות ראשונות בחודש חינם. מעבר לכך עלות קטנה לשיחה">?</span></span></td>
+            <td data-label="הערה"><span class="tag tag-yellow">תלוי בנפח <span class="question-mark" data-tip="1,000 שיחות ראשונות בחודש חינם. מעבר לכך עלות קטנה לשיחה">?</span></span></td>
           </tr>
           <tr>
-            <td>
+            <td data-label="שירות">
               <div class="cost-name"><i class="fa-solid fa-credit-card"></i> סליקה</div>
               <div class="cost-note">Meshulam / Cardcom, רק אם נדרש</div>
             </td>
-            <td style="font-size:13px;color:var(--text-muted)">נדרש <strong style="color:#fff">רק</strong> אם אי אפשר להעביר את הלקוח לאתר לתשלום. אם האתר זמין, הסליקה הקיימת באתר מספיקה</td>
+            <td data-label="תיאור" style="font-size:13px;color:var(--text-muted)">נדרש <strong style="color:#fff">רק</strong> אם אי אפשר להעביר את הלקוח לאתר לתשלום. אם האתר זמין, הסליקה הקיימת באתר מספיקה</td>
             <td>
               <span class="cost-amount commission">עמלה בלבד</span>
               <div class="cost-note">1.5% עד 2.5% + ~1 ₪ לעסקה</div>
@@ -814,31 +854,31 @@
             </td>
           </tr>
           <tr>
-            <td>
+            <td data-label="שירות">
               <div class="cost-name"><i class="fa-solid fa-table"></i> Google Sheets</div>
               <div class="cost-note">קטלוג מוצרים + הזמנות</div>
             </td>
-            <td style="font-size:13px;color:var(--text-muted)">טבלה שמכילה את כל המוצרים ומנהלת את ההזמנות שהגיעו</td>
-            <td><span class="cost-amount free">חינם</span></td>
-            <td><span class="tag tag-green">כלול ב-Google</span></td>
+            <td data-label="תיאור" style="font-size:13px;color:var(--text-muted)">טבלה שמכילה את כל המוצרים ומנהלת את ההזמנות שהגיעו</td>
+            <td data-label="עלות חודשית"><span class="cost-amount free">חינם</span></td>
+            <td data-label="הערה"><span class="tag tag-green">כלול ב-Google</span></td>
           </tr>
           <tr>
-            <td>
+            <td data-label="שירות">
               <div class="cost-name"><i class="fa-solid fa-shield-halved"></i> Meta Business</div>
               <div class="cost-note">חשבון עסקי מאומת</div>
             </td>
-            <td style="font-size:13px;color:var(--text-muted)">הגשת האישור הרשמי של Meta לשימוש ב-WhatsApp עסקי</td>
-            <td><span class="cost-amount free">חינם</span></td>
-            <td><span class="tag tag-green">חד-פעמי</span></td>
+            <td data-label="תיאור" style="font-size:13px;color:var(--text-muted)">הגשת האישור הרשמי של Meta לשימוש ב-WhatsApp עסקי</td>
+            <td data-label="עלות חודשית"><span class="cost-amount free">חינם</span></td>
+            <td data-label="הערה"><span class="tag tag-green">חד-פעמי</span></td>
           </tr>
           <tr>
-            <td>
+            <td data-label="שירות">
               <div class="cost-name"><i class="fa-solid fa-headset"></i> ריטיינר תחזוקה</div>
               <div class="cost-note">THE TERMINATOR</div>
             </td>
-            <td style="font-size:13px;color:var(--text-muted)">תחזוקה שוטפת, תיקון תקלות ועדכונים. זמינות ראשון עד חמישי 09:00 עד 21:00. מענה תוך 24 שעות מרגע שליחת התקלה</td>
-            <td><span class="cost-amount" style="color:var(--red-light)">250 ₪</span></td>
-            <td><span class="tag tag-red">קבוע</span></td>
+            <td data-label="תיאור" style="font-size:13px;color:var(--text-muted)">תחזוקה שוטפת, תיקון תקלות ועדכונים. זמינות ראשון עד חמישי 09:00 עד 21:00. מענה תוך 24 שעות מרגע שליחת התקלה</td>
+            <td data-label="עלות חודשית"><span class="cost-amount" style="color:var(--red-light)">250 ₪</span></td>
+            <td data-label="הערה"><span class="tag tag-red">קבוע</span></td>
           </tr>
           <tr class="total-row">
             <td colspan="2"><strong>סה"כ חודשי משוער</strong></td>
