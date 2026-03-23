@@ -318,7 +318,33 @@
       font-size: 11px;
       font-weight: 700;
       cursor: help;
+      position: relative;
     }
+    .question-mark::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      right: 50%;
+      transform: translateX(50%);
+      background: #1e1e1e;
+      border: 1px solid rgba(255,214,0,0.3);
+      color: #e8e8e8;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.6;
+      padding: 10px 14px;
+      border-radius: 6px;
+      white-space: normal;
+      width: 220px;
+      text-align: right;
+      direction: rtl;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .question-mark:hover::after { opacity: 1; }
     .total-row td {
       background: rgba(230,62,27,0.06);
       border-top: 1px solid var(--border-red) !important;
@@ -753,7 +779,7 @@
             </td>
             <td style="font-size:13px;color:var(--text-muted)">המוח של הבוט, ה-AI שמנהל את השיחות, ממליץ ועושה upsell</td>
             <td><span class="cost-amount">30 עד 100 ₪</span></td>
-            <td><span class="tag tag-yellow">תלוי בנפח <span class="question-mark" title="תלוי בכמה שיחות יהיו בחודש">?</span></span></td>
+            <td><span class="tag tag-yellow">תלוי בנפח <span class="question-mark" data-tip="תלוי בכמה שיחות יהיו בחודש">?</span></span></td>
           </tr>
           <tr>
             <td>
@@ -766,7 +792,7 @@
               <div class="cost-note">עד 1,000 שיחות/חודש</div>
               <div class="cost-note" style="margin-top:4px">מעבר לכך: ~0.20 ₪/שיחה</div>
             </td>
-            <td><span class="tag tag-yellow">תלוי בנפח <span class="question-mark" title="1,000 שיחות ראשונות בחודש חינם. מעבר לכך עלות קטנה לשיחה">?</span></span></td>
+            <td><span class="tag tag-yellow">תלוי בנפח <span class="question-mark" data-tip="1,000 שיחות ראשונות בחודש חינם. מעבר לכך עלות קטנה לשיחה">?</span></span></td>
           </tr>
           <tr>
             <td>
@@ -780,7 +806,7 @@
               <div class="cost-note">אין דמי מנוי חודשיים</div>
             </td>
             <td>
-              <span class="tag tag-yellow">מותנה <span class="question-mark" title="נדרש רק אם לא ניתן לחבר לאתר הקיים. בשלב ראשון ננסה לעבוד עם הסליקה של האתר">?</span></span>
+              <span class="tag tag-yellow">מותנה <span class="question-mark" data-tip="נדרש רק אם לא ניתן לחבר לאתר הקיים. בשלב ראשון ננסה לעבוד עם הסליקה של האתר">?</span></span>
             </td>
           </tr>
           <tr>
@@ -806,7 +832,7 @@
               <div class="cost-name"><i class="fa-solid fa-headset"></i> ריטיינר תחזוקה</div>
               <div class="cost-note">THE TERMINATOR</div>
             </td>
-            <td style="font-size:13px;color:var(--text-muted)">תחזוקה שוטפת, תיקון תקלות ועדכונים, זמינות ראשון עד חמישי 09:00 עד 21:00</td>
+            <td style="font-size:13px;color:var(--text-muted)">תחזוקה שוטפת, תיקון תקלות ועדכונים. זמינות ראשון עד חמישי 09:00 עד 21:00. מענה תוך 24 שעות מרגע שליחת התקלה</td>
             <td><span class="cost-amount" style="color:var(--red-light)">250 ₪</span></td>
             <td><span class="tag tag-red">קבוע</span></td>
           </tr>
@@ -865,7 +891,7 @@
           <div class="check-item">
             <div class="check-box"></div>
             <div class="check-item-text">
-              <strong>חשבון סליקה עם API מופעל</strong>
+              <strong>חיבור לסליקה <span style="font-size:11px;color:var(--text-muted);font-weight:400">(רק במידת הצורך)</span></strong>
               <span class="qmark">?</span> <span class="note">אם יש Cardcom / Meshulam / Tranzila, רק נפעיל API. אם אין, נפתח יחד (כמה ימים)</span>
             </div>
           </div>
