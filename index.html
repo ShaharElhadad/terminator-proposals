@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>הצעת מחיר | THE TERMINATOR × בית פלוס</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --red: #e63e1b;
+      --red-light: #ff5533;
+      --red-dark: #9e2a0f;
+      --bg: #090909;
+      --bg-card: #111111;
+      --bg-section: #0e0e0e;
+      --bg-light: #161616;
+      --border: #1e1e1e;
+      --border-red: rgba(230,62,27,0.3);
+      --text: #ececec;
+      --text-muted: #777;
+      --text-light: #aaa;
+      --green: #00e676;
+      --yellow: #ffd600;
+      --blue: #2979ff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Heebo', 'Arial Hebrew', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      direction: rtl;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    a { color: var(--red-light); }
+
+    /* ─── COVER ─── */
+    .cover {
+      background: linear-gradient(160deg, #0f0f0f 0%, #0a0a0a 60%, #130500 100%);
+      border-bottom: 1px solid var(--border-red);
+      padding: 70px 40px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(230,62,27,0.015) 2px,
+        rgba(230,62,27,0.015) 4px
+      );
+      pointer-events: none;
+    }
+    .brand-name {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: 6px;
+      color: #fff;
+      text-transform: uppercase;
+      text-shadow: 0 0 40px rgba(230,62,27,0.5);
+    }
+    .brand-name span { color: var(--red); }
+    .brand-tagline {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-muted);
+      letter-spacing: 3px;
+      margin-top: 6px;
+      text-transform: uppercase;
+    }
+    .divider-line {
+      width: 60px;
+      height: 2px;
+      background: var(--red);
+      margin: 28px auto;
+    }
+    .doc-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .doc-meta {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .doc-meta span { color: var(--text-light); font-weight: 600; }
+
+    /* ─── CONTAINER ─── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ─── SECTION ─── */
+    .section {
+      margin-top: 52px;
+    }
+    .section-label {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 2px;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .section-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    /* ─── SUMMARY BOX ─── */
+    .summary-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-red);
+      border-right: 3px solid var(--red);
+      border-radius: 8px;
+      padding: 28px 32px;
+      font-size: 16px;
+      line-height: 1.9;
+      color: var(--text-light);
+    }
+    .summary-box strong { color: #fff; }
+
+    /* ─── FLOW ─── */
+    .flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 8px;
+    }
+    .flow-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      position: relative;
+    }
+    .flow-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 19px;
+      top: 48px;
+      width: 2px;
+      height: calc(100% - 32px);
+      background: var(--border-red);
+    }
+    .flow-dot {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      border-radius: 50%;
+      background: var(--bg-light);
+      border: 2px solid var(--border-red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .flow-dot.active {
+      background: var(--red);
+      border-color: var(--red);
+    }
+    .flow-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      flex: 1;
+      margin-bottom: 8px;
+    }
+    .flow-content strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+    .flow-content p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ─── OPTIONS ─── */
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 8px;
+    }
+    @media (max-width: 640px) {
+      .options-grid { grid-template-columns: 1fr; }
+      .brand-name { font-size: 32px; }
+    }
+    .option-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .option-card.recommended {
+      border-color: var(--red);
+      box-shadow: 0 0 24px rgba(230,62,27,0.12);
+    }
+    .option-header {
+      padding: 18px 22px;
+      background: var(--bg-light);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .option-card.recommended .option-header {
+      background: rgba(230,62,27,0.1);
+      border-bottom-color: var(--border-red);
+    }
+    .option-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .badge {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 3px 8px;
+      border-radius: 3px;
+    }
+    .badge-rec { background: var(--red); color: #fff; }
+    .badge-adv { background: #222; color: var(--text-muted); }
+    .option-body { padding: 22px; }
+    .option-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      line-height: 1.8;
+    }
+    .option-pros { list-style: none; }
+    .option-pros li {
+      font-size: 13px;
+      color: var(--text-light);
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .option-pros li:last-child { border-bottom: none; }
+    .option-pros li .icon-green { color: var(--green); }
+    .option-pros li .icon-red { color: var(--red); }
+    .option-pros li .icon-yellow { color: var(--yellow); }
+
+    /* ─── COSTS TABLE ─── */
+    .costs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+    .costs-table th {
+      background: var(--bg-light);
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 12px 16px;
+      text-align: right;
+      border-bottom: 1px solid var(--border);
+    }
+    .costs-table td {
+      padding: 14px 16px;
+      font-size: 13px;
+      color: var(--text-light);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .costs-table tr:last-child td { border-bottom: none; }
+    .costs-table tr:hover td { background: var(--bg-light); }
+    .cost-name { color: #fff; font-weight: 600; font-size: 14px; }
+    .cost-note { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
+    .cost-amount { color: var(--text); font-weight: 700; white-space: nowrap; }
+    .cost-amount.free { color: var(--green); }
+    .cost-amount.commission { color: var(--yellow); }
+    .cost-amount.unknown { color: var(--text-muted); }
+    .question-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(255,214,0,0.15);
+      border: 1px solid rgba(255,214,0,0.4);
+      color: var(--yellow);
+      font-size: 11px;
+      font-weight: 700;
+      cursor: help;
+    }
+    .total-row td {
+      background: rgba(230,62,27,0.06);
+      border-top: 1px solid var(--border-red) !important;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* ─── CHECKLIST ─── */
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 640px) { .checklist-grid { grid-template-columns: 1fr; } }
+    .checklist-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .checklist-box.option-b { border-color: rgba(41,121,255,0.3); }
+    .checklist-header {
+      padding: 14px 20px;
+      background: var(--bg-light);
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .checklist-header .opt-tag {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+    .opt-a { background: rgba(230,62,27,0.2); color: var(--red-light); }
+    .opt-b { background: rgba(41,121,255,0.15); color: #5c9fff; }
+    .checklist-body { padding: 6px 0; }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 11px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .check-item:last-child { border-bottom: none; }
+    .check-box {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      border: 2px solid var(--border);
+      border-radius: 3px;
+      margin-top: 2px;
+    }
+    .check-item-text {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+    .check-item-text strong { color: #fff; display: block; margin-bottom: 2px; }
+    .check-item-text .note { font-size: 11px; color: var(--text-muted); }
+    .check-item-text .qmark { color: var(--yellow); font-weight: 700; }
+
+    /* ─── TIMELINE ─── */
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 8px;
+    }
+    @media (max-width: 640px) {
+      .timeline { grid-template-columns: 1fr 1fr; }
+    }
+    .tl-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 16px;
+      text-align: center;
+    }
+    .tl-week {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .tl-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .tl-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ─── OPEN ITEMS ─── */
+    .open-items {
+      background: rgba(255,214,0,0.04);
+      border: 1px solid rgba(255,214,0,0.2);
+      border-radius: 10px;
+      padding: 24px 28px;
+    }
+    .open-item {
+      display: flex;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,214,0,0.08);
+      font-size: 13px;
+      color: var(--text-light);
+    }
+    .open-item:last-child { border-bottom: none; }
+    .open-item .q { color: var(--yellow); font-weight: 800; font-size: 15px; min-width: 18px; }
+
+    /* ─── PRICE BOX ─── */
+    .price-section {
+      margin-top: 52px;
+      background: linear-gradient(135deg, #0f0f0f, #130500);
+      border: 1px solid var(--border-red);
+      border-radius: 12px;
+      padding: 48px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .price-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        0deg, transparent, transparent 3px,
+        rgba(230,62,27,0.02) 3px, rgba(230,62,27,0.02) 6px
+      );
+    }
+    .price-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .price-amount {
+      font-size: 72px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      text-shadow: 0 0 60px rgba(230,62,27,0.4);
+    }
+    .price-amount span { color: var(--red); }
+    .price-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+    .price-includes {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 28px;
+    }
+    .price-tag {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .price-tag .dot { color: var(--green); margin-left: 6px; }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      margin-top: 60px;
+      padding: 32px 40px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .footer-brand { font-size: 14px; font-weight: 800; letter-spacing: 3px; color: var(--red); }
+    .footer-sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+    /* ─── UTILS ─── */
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-right: 4px;
+    }
+    .tag-green { background: rgba(0,230,118,0.1); color: var(--green); }
+    .tag-red { background: rgba(230,62,27,0.12); color: var(--red-light); }
+    .tag-yellow { background: rgba(255,214,0,0.1); color: var(--yellow); }
+    .tag-blue { background: rgba(41,121,255,0.1); color: #5c9fff; }
+
+    .info-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .info-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .info-pill strong { color: #fff; }
+
+    hr.section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0;
+    }
+
+    .note-box {
+      background: rgba(41,121,255,0.05);
+      border: 1px solid rgba(41,121,255,0.2);
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 16px;
+      line-height: 1.8;
+    }
+    .note-box strong { color: #5c9fff; }
+
+    .highlight-box {
+      background: rgba(0,230,118,0.04);
+      border: 1px solid rgba(0,230,118,0.15);
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 16px;
+    }
+    .highlight-box strong { color: var(--green); }
+
+    .costs-wrapper {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ COVER ═══════════════ -->
+<div class="cover">
+  <div class="brand-name">THE <span>TERMINATOR</span></div>
+  <div class="brand-tagline">בונה סוכנים שמחסלים עובדים</div>
+  <div class="divider-line"></div>
+  <div class="doc-title">הצעת מחיר — בוט מכירות חכם ב-WhatsApp</div>
+  <div class="doc-meta" style="margin-top:10px">
+    עבור: <span>בית פלוס</span> &nbsp;|&nbsp; תאריך: <span>מרץ 2026</span> &nbsp;|&nbsp; תוקף ההצעה: <span>30 יום</span>
+  </div>
+</div>
+
+<!-- ═══════════════ CONTAINER ═══════════════ -->
+<div class="container">
+
+  <!-- ─── מה אנחנו בונים ─── -->
+  <div class="section">
+    <div class="section-label">מה בונים</div>
+    <div class="section-title">בוט מכירות חכם ב-WhatsApp</div>
+    <div class="section-subtitle">הסבר פשוט — ללא מינוח טכני</div>
+
+    <div class="summary-box">
+      אנחנו בונים <strong>סוכן AI שרץ 24/7 בוואטסאפ של העסק</strong> ומחליף שירות לקוחות ידני.
+      <br /><br />
+      הלקוח מגיע לוואטסאפ, שואל שאלה — והבוט <strong>מבין מה הוא צריך, ממליץ על המוצרים הנכונים,
+      מציע עוד מוצרים רלוונטיים</strong> (למשל: אם קנה ברז — הבוט יציע גם אטם וטפלון),
+      ובסוף <strong>שולח קישור לתשלום מאובטח</strong> — הכל בתוך הצ'אט, בלי צורך לדבר עם אף אחד.
+      <br /><br />
+      הבוט לא עובד לפי תסריט קבוע — הוא <strong>מנהל שיחה טבעית ממש כמו נציג מכירות אנושי.</strong>
+    </div>
+  </div>
+
+  <!-- ─── איך זה עובד ─── -->
+  <div class="section">
+    <div class="section-label">תהליך</div>
+    <div class="section-title">איך השיחה נראית מצד הלקוח</div>
+    <div class="section-subtitle">מרגע שהלקוח שולח הודעה ועד לתשלום</div>
+
+    <div class="flow">
+      <div class="flow-item">
+        <div class="flow-dot active">💬</div>
+        <div class="flow-content">
+          <strong>לקוח שולח הודעה</strong>
+          <p>לדוגמה: "יש לכם ברז למטבח?" — בוואטסאפ הרגיל שלו</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-dot">🧠</div>
+        <div class="flow-content">
+          <strong>הבוט מבין ושואל שאלות ממוקדות</strong>
+          <p>לאיזה חדר? איזה גודל? תקציב? — כדי להביא את ההמלצה הנכונה</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-dot">📦</div>
+        <div class="flow-content">
+          <strong>מציג מוצרים מותאמים מהקטלוג</strong>
+          <p>שם, מחיר, ותיאור קצר — 2-3 אפשרויות לפי צורך הלקוח</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-dot">⬆️</div>
+        <div class="flow-content">
+          <strong>מציע מוצרים נוספים (Upsell)</strong>
+          <p>בצורה טבעית: "בד"כ לוקחים גם... — רוצה להוסיף?"</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-dot active">💳</div>
+        <div class="flow-content">
+          <strong>שולח קישור לתשלום מאובטח</strong>
+          <p>הלקוח רואה סיכום הזמנה מלא עם כל המוצרים שבחר ומשלם בקליק אחד</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-dot">✅</div>
+        <div class="flow-content">
+          <strong>אישור אוטומטי + התראה לעסק</strong>
+          <p>הלקוח מקבל אישור בוואטסאפ. בעל העסק מקבל פרטי הזמנה מיידית</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- ─── שתי אפשרויות ─── -->
+  <div class="section">
+    <div class="section-label">מסלולים</div>
+    <div class="section-title">שתי אפשרויות — באיזו לבחור?</div>
+    <div class="section-subtitle">ההבדל היחיד הוא איך מתבצע התשלום בסוף</div>
+
+    <div class="options-grid">
+      <!-- אפשרות א -->
+      <div class="option-card recommended">
+        <div class="option-header">
+          <div class="option-title">⚡ אפשרות א</div>
+          <div class="badge badge-rec">מומלץ</div>
+        </div>
+        <div class="option-body">
+          <div class="option-desc">
+            תשלום ישיר דרך חברת סליקה ישראלית (Meshulam / Cardcom).
+            הבוט שולח קישור תשלום עם רשימת המוצרים, הלקוח משלם, העסק מקבל התראה.
+            <strong style="color:#fff;display:block;margin-top:8px">לא מחייב שום גישה לאתר.</strong>
+          </div>
+          <ul class="option-pros">
+            <li><span class="icon-green">✓</span> מהיר לבנייה — עד שבועיים</li>
+            <li><span class="icon-green">✓</span> לא תלוי באתר הקיים</li>
+            <li><span class="icon-green">✓</span> עובד גם אם האתר קורס</li>
+            <li><span class="icon-green">✓</span> הזמנות מנוהלות ב-Google Sheets — פשוט</li>
+            <li><span class="icon-yellow">⚠</span> ניהול הזמנות נפרד מהאתר</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- אפשרות ב -->
+      <div class="option-card">
+        <div class="option-header">
+          <div class="option-title">🔗 אפשרות ב</div>
+          <div class="badge badge-adv">מתקדם</div>
+        </div>
+        <div class="option-body">
+          <div class="option-desc">
+            הבוט בונה עגלת קניות ושולח קישור שפותח את
+            <strong style="color:#fff">bait-plus.co.il עם המוצרים כבר בעגלה</strong>.
+            הלקוח מגיע לאתר, רואה את כל המוצרים שבחר ומשלם דרך מערכת התשלום הקיימת באתר.
+          </div>
+          <ul class="option-pros">
+            <li><span class="icon-green">✓</span> הזמנות נכנסות למערכת האתר הקיימת</li>
+            <li><span class="icon-green">✓</span> חוויה מלאה בתוך האתר</li>
+            <li><span class="icon-red">✗</span> מחייב גישה לשרת האתר</li>
+            <li><span class="icon-red">✗</span> תלוי בזמינות מי שתחזק את האתר</li>
+            <li><span class="icon-yellow">⚠</span> זמן בנייה ארוך יותר</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>הערה לגבי אפשרות ב:</strong> האתר bait-plus.co.il בנוי על טכנולוגיה ישנה (ASP Classic).
+      כדי לממש את אפשרות ב, צריך להוסיף קטע קוד קטן לשרת האתר שמאפשר לבנות עגלה דרך קישור.
+      זה פשוט מבחינה טכנית — אך מחייב <strong>גישה לשרת האתר</strong> ושיתוף פעולה עם מי שמתחזק אותו.
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- ─── עלויות חודשיות ─── -->
+  <div class="section">
+    <div class="section-label">עלויות</div>
+    <div class="section-title">מה ישלם העסק בכל חודש</div>
+    <div class="section-subtitle">מעבר לתשלום הפיתוח החד-פעמי — אלה העלויות השוטפות</div>
+
+    <div class="costs-wrapper">
+      <table class="costs-table">
+        <thead>
+          <tr>
+            <th>שירות</th>
+            <th>מה זה עושה</th>
+            <th>עלות חודשית משוערת</th>
+            <th>הערה</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="cost-name">🖥️ שרת VPS</div>
+              <div class="cost-note">DigitalOcean / Hetzner</div>
+            </td>
+            <td style="font-size:13px;color:var(--text-muted)">מחשב ענן שמריץ את הבוט 24 שעות ביממה, 7 ימים בשבוע</td>
+            <td><span class="cost-amount">50–80 ₪</span></td>
+            <td><span class="tag tag-green">קבוע</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="cost-name">🧠 Claude AI</div>
+              <div class="cost-note">Anthropic API</div>
+            </td>
+            <td style="font-size:13px;color:var(--text-muted)">המוח של הבוט — ה-AI שמנהל את השיחות, ממליץ ועושה upsell</td>
+            <td><span class="cost-amount">70–200 ₪</span></td>
+            <td><span class="tag tag-yellow">תלוי בנפח <span class="question-mark" title="תלוי בכמה שיחות יהיו בחודש">?</span></span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="cost-name">💬 WhatsApp API</div>
+              <div class="cost-note">Meta Cloud API הרשמי</div>
+            </td>
+            <td style="font-size:13px;color:var(--text-muted)">הגישה הרשמית של Meta לשליחת וקבלת הודעות בוואטסאפ עסקי</td>
+            <td>
+              <span class="cost-amount free">חינם</span>
+              <div class="cost-note">עד 1,000 שיחות/חודש</div>
+              <div class="cost-note" style="margin-top:4px">מעבר לכך: ~0.20 ₪/שיחה</div>
+            </td>
+            <td><span class="tag tag-yellow">תלוי בנפח <span class="question-mark" title="1,000 שיחות ראשונות בחודש חינם. מעבר לכך עלות קטנה לשיחה">?</span></span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="cost-name">💳 סליקה</div>
+              <div class="cost-note">Meshulam / Cardcom</div>
+            </td>
+            <td style="font-size:13px;color:var(--text-muted)">מעבד התשלומים שמקבל את כסף מהלקוח ומעביר לעסק</td>
+            <td>
+              <span class="cost-amount commission">עמלה בלבד</span>
+              <div class="cost-note">~1.5%–2.5% + ~1 ₪ לעסקה</div>
+              <div class="cost-note">אין דמי מנוי חודשיים</div>
+            </td>
+            <td>
+              <span class="tag tag-yellow">לבדוק <span class="question-mark" title="האם יש חשבון סליקה קיים? אם כן — רק מפעילים API. אם לא — פותחים חדש (כמה ימים)">?</span></span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="cost-name">📊 Google Sheets</div>
+              <div class="cost-note">קטלוג מוצרים + הזמנות</div>
+            </td>
+            <td style="font-size:13px;color:var(--text-muted)">טבלה שמכילה את כל המוצרים ומנהלת את ההזמנות שהגיעו</td>
+            <td><span class="cost-amount free">חינם</span></td>
+            <td><span class="tag tag-green">כלול ב-Google</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="cost-name">🔐 Meta Business</div>
+              <div class="cost-note">חשבון עסקי מאומת</div>
+            </td>
+            <td style="font-size:13px;color:var(--text-muted)">הגשת האישור הרשמי של Meta לשימוש ב-WhatsApp עסקי</td>
+            <td><span class="cost-amount free">חינם</span></td>
+            <td><span class="tag tag-green">חד-פעמי</span></td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="2"><strong>סה"כ חודשי משוער</strong></td>
+            <td><span style="color:var(--red-light);font-size:16px;font-weight:900">120–300 ₪</span><div class="cost-note" style="color:var(--text-muted)">לפי נפח השיחות</div></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="highlight-box">
+      <strong>חשוב לדעת:</strong> כל העלויות החודשיות האלה משולמות <strong>ישירות על ידי העסק</strong> לספקים
+      (Meta, Anthropic, DigitalOcean וכו') — לא דרכנו. אנחנו רק מקימים ומחברים הכל.
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- ─── מה צריך מהלקוח ─── -->
+  <div class="section">
+    <div class="section-label">נדרש מהלקוח</div>
+    <div class="section-title">מה נצטרך ממך כדי להתחיל</div>
+    <div class="section-subtitle">רשימה מלאה — גישות, חשבונות ומסמכים</div>
+
+    <div class="checklist-grid">
+      <!-- אפשרות א -->
+      <div class="checklist-box">
+        <div class="checklist-header">
+          <span class="opt-tag opt-a">אפשרות א</span>
+          גישות נדרשות — תשלום ישיר
+        </div>
+        <div class="checklist-body">
+          <div class="check-item">
+            <div class="check-box"></div>
+            <div class="check-item-text">
+              <strong>גישת Admin ל-Meta Business Manager</strong>
+              שם משתמש + סיסמה לחשבון Facebook העסקי
+            </div>
+          </div>
+          <div class="check-item">
+            <div class="check-box"></div>
+            <div class="check-item-text">
+              <strong>מספר טלפון ייעודי לבוט</strong>
+              מספר שאינו מחובר לוואטסאפ רגיל — יכול להיות SIM חדש
+            </div>
+          </div>
+          <div class="check-item">
+            <div class="check-box"></div>
+            <div class="check-item-text">
+              <strong>תעודת עוסק / אישור עסק</strong>
+              לצורך אימות חשבון Meta Business (תהליך חינמי)
+            </div>
+          </div>
+          <div class="check-item">
+            <div class="check-box"></div>
+            <div class="check-item-text">
+              <strong>חשבון סליקה עם API מופעל</strong>
+              <span class="qmark">?</span> <span class="note">אם יש Cardcom / Meshulam / Tranzila — רק נפעיל API. אם אין — נפתח יחד (כמה ימים)</span>
+            </div>
+          </div>
+          <div class="check-item">
+            <div class="check-box"></div>
+            <div class="check-item-text">
+              <strong>קובץ Excel / CSV עם המוצרים</strong>
+              שם מוצר, מחיר, תיאור, תמונה, קטגוריה
+            </div>
+          </div>
+          <div class="check-item">
+            <div class="check-box"></div>
+            <div class="check-item-text">
+              <strong>מספר WhatsApp של בעל העסק</strong>
+              לקבלת התראות על כל הזמנה חדשה
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- אפשרות ב -->
+      <div class="checklist-box option-b">
+        <div class="checklist-header">
+          <span class="opt-tag opt-b">אפשרות ב</span>
+          כל מה שבאפשרות א + נוסף
+        </div>
+        <div class="checklist-body">
+          <div class="check-item">
+            <div class="check-box"></div>
+            <div class="check-item-text">
+              <strong>כל הפריטים מאפשרות א</strong>
+              <span class="note">כל 6 הסעיפים שלמעלה נדרשים גם כאן</span>
+            </div>
+          </div>
+          <div class="check-item">
+            <div class="check-box"></div>
+            <div class="check-item-text">
+              <strong>גישת FTP / cPanel לשרת האתר</strong>
+              שם משתמש + סיסמה לחברת האחסון שמחזיקה את bait-plus.co.il
+            </div>
+          </div>
+          <div class="check-item">
+            <div class="check-box"></div>
+            <div class="check-item-text">
+              <strong>פרטי חברת האחסון</strong>
+              שם חברה + לינק לפנל ניהול השרת
+            </div>
+          </div>
+          <div class="check-item">
+            <div class="check-box"></div>
+            <div class="check-item-text">
+              <strong>קשר עם מי שבנה / מתחזק את האתר</strong>
+              <span class="qmark">?</span> <span class="note">ייתכן שיצטרכו לאשר את השינוי בשרת — תלוי בסידור הקיים</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- ─── שאלות פתוחות ─── -->
+  <div class="section">
+    <div class="section-label">לבדוק</div>
+    <div class="section-title">פרטים שצריך לברר לפני התחלה</div>
+    <div class="section-subtitle">אלה הנקודות שעדיין פתוחות — חלקן ישפיעו על לוח הזמנים</div>
+
+    <div class="open-items">
+      <div class="open-item">
+        <div class="q">?</div>
+        <div><strong style="color:#fff">האם יש חשבון סליקה קיים?</strong><br/>
+        אם כן — Cardcom / Meshulam / Tranzila — רק צריך להפעיל API ומקבלים מפתח תוך יום.
+        אם לא — פותחים חשבון חדש, תהליך של 2–5 ימי עסקים.</div>
+      </div>
+      <div class="open-item">
+        <div class="q">?</div>
+        <div><strong style="color:#fff">האם יש Meta Business Account קיים ומאומת?</strong><br/>
+        אם כן — נחסוך שבוע. אם לא — צריך לפתוח ולאמת, זה לוקח 3–7 ימי עסקים.</div>
+      </div>
+      <div class="open-item">
+        <div class="q">?</div>
+        <div><strong style="color:#fff">כמה שיחות WhatsApp מקבל העסק בממוצע ביום?</strong><br/>
+        זה ישפיע על עלות ה-API החודשית. עד ~33 שיחות ביום = חינם לחלוטין.</div>
+      </div>
+      <div class="open-item">
+        <div class="q">?</div>
+        <div><strong style="color:#fff">כמה מוצרים יש בקטלוג?</strong><br/>
+        משפיע על זמן הכנת הקטלוג. אם יש מאות מוצרים — צריך לתכנן ייצוא מסודר.</div>
+      </div>
+      <div class="open-item">
+        <div class="q">?</div>
+        <div><strong style="color:#fff">[אפשרות ב בלבד] מי מתחזק את האתר?</strong><br/>
+        צריך לדעת האם יש גישה חופשית לשרת או שצריך אישור / עזרה של צד שלישי.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- ─── לוח זמנים ─── -->
+  <div class="section">
+    <div class="section-label">לוח זמנים</div>
+    <div class="section-title">מתי הבוט יהיה חי</div>
+    <div class="section-subtitle">מהרגע שמקבלים את כל הגישות ועד להשקה</div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-week">שבוע 1</div>
+        <div class="tl-title">הקמה ראשונית</div>
+        <div class="tl-desc">קבלת גישות, פתיחת Meta Business, תחילת תהליך אימות</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-week">שבוע 2</div>
+        <div class="tl-title">בנייה</div>
+        <div class="tl-desc">פיתוח הבוט, הגדרת קטלוג מוצרים, חיבור לסליקה</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-week">שבוע 3</div>
+        <div class="tl-title">בדיקות</div>
+        <div class="tl-desc">בדיקות שיחה, upsell, תשלום — ותיקונים לפי צורך</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-week">שבוע 3–4</div>
+        <div class="tl-title">🚀 השקה</div>
+        <div class="tl-desc">הבוט עולה לאוויר עם מספר הוואטסאפ של העסק</div>
+      </div>
+    </div>
+
+    <div class="note-box" style="margin-top:16px">
+      <strong>חשוב:</strong> ה-Bottleneck היחיד בלוח הזמנים הוא <strong>אימות Meta Business</strong> (3–7 ימי עסקים).
+      ממליץ להתחיל בתהליך הזה מיד — הוא לא עולה כסף ולא מחייב לכלום, רק חוסך זמן.
+    </div>
+  </div>
+
+  <!-- ─── מחיר ─── -->
+  <div class="price-section">
+    <div class="price-label">השקעה חד-פעמית בפיתוח</div>
+    <div class="price-amount">5,000 <span>₪</span></div>
+    <div class="price-note">לא כולל מע"מ &nbsp;|&nbsp; תשלום בשני חלקים: 50% בהתחלה, 50% בהשקה</div>
+    <div class="price-includes">
+      <div class="price-tag"><span class="dot">●</span> בניית הבוט המלא</div>
+      <div class="price-tag"><span class="dot">●</span> חיבור ל-WhatsApp</div>
+      <div class="price-tag"><span class="dot">●</span> חיבור לסליקה</div>
+      <div class="price-tag"><span class="dot">●</span> קטלוג מוצרים</div>
+      <div class="price-tag"><span class="dot">●</span> ניהול הזמנות</div>
+      <div class="price-tag"><span class="dot">●</span> בדיקות ותיקונים</div>
+      <div class="price-tag"><span class="dot">●</span> הדרכה לשימוש</div>
+      <div class="price-tag"><span class="dot">●</span> חודש תמיכה</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ─── FOOTER ─── -->
+<div class="footer">
+  <div class="footer-brand">THE TERMINATOR</div>
+  <div class="footer-sub">בונה סוכנים שמחסלים עובדים</div>
+</div>
+
+</body>
+</html>
